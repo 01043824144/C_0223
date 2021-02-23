@@ -34,4 +34,4 @@ int main_012312(void) {
 	printf("THU=%d,THIR=%d\n", THU, WED);
 	printf("FRI=%d,SAT=%d\n", FRI, SAT);
 	return 0;
-}
+탈주하고싶다

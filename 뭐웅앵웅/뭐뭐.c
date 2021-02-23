@@ -8,7 +8,7 @@ typedef struct _student {
 	char* name;
 } STUDENT;
 
-int main(void) {
+int main_1231(void) {
 
 	AGE age = 20; //age 데이터 타입
 	NAME name = "윤 지"; // name 데이터타입
