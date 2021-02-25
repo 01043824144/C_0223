@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
+#include <string.h> 
+#include <stdlib.h>
 
 //우리는 책이름과 작가이름을 받을것이다 (배열로)
 //책장의 크기는 100권이 들어갈 수 있다.
@@ -60,13 +61,13 @@ int main(void) {
 		}
 
 
-		else
-		{
-			printf("맞는 명령어가 없습니다.\n");
+		else if (strcmp(command, "q") == 0) { // 프로그램 종료
 			break;
 		}
+		else {
+			printf("맞는 명령어가 없습니다.\n");
+		}
 	}
-
 
 	return 0;
 }
@@ -102,7 +103,22 @@ void list() {
 	}
 }
 
-void find() { printf("find함수 호출\n"); }
+void find() { 
+	//book_name[]=10개가 있다.
+	//10번을 돌면서 같은이름이 있는지 확인하고, 있으면 그 index를 사용하여 책을 출력한다.
+	// >> find 책이름 [엔터]
+	char buf1[100];
+	scanf("%s", buf1);
+	for (int i = 0; i < book_idx; i++) {
+		if (strcmp(buf1, book_name[i]) == 0) {
+			printf("%-10s %-10s\n", book_name[i], book_author[i]);
+			//break;
+			return; //함수자체를 종료
+		}
+	}
+	//같은 책이 없을 때 실행
+	printf("책 목록 중 , '%s' 하는 책은 없습니다.\n", buf1);
+}
 void save() { printf("save함수 호출\n"); }
 void read() { printf("read함수 호출\n"); }
 void help() { printf("help함수 호출\n"); }
@@ -117,3 +133,5 @@ char* ex_strdup(char* source) {
 	strcpy(tmp, source);
 	return tmp;
 }
+
+//github.com/lodosswkor/c-project
